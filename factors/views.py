@@ -11,6 +11,9 @@ class ActivityCreateAPIView(CreateAPIView):
         serializer.save(user=self.request.user)
 
 class GetMyActivity(ListAPIView):
-    queryset = Activity.objects.all()
+    # queryset = Activity.objects.all()
     serializer_class = ActivityCreateSerializer
     permission_classes = [IsAuthenticated]
+
+    def get_queryset(self):
+        return Activity.objects.filter(user=self.request.user).order_by('-created_at')
