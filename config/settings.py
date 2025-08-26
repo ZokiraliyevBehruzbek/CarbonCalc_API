@@ -26,7 +26,9 @@ SECRET_KEY = 'django-insecure-*h6m5j^&64_e1gn05_%g6q+mi(w9)b04003otso96u9&-n-y!q
 DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
+# CORS_ALLOW_ALL_ORIGINS = True
 CORS_ALLOW_ALL_ORIGINS = True
+CORS_ALLOW_CREDENTIALS = True
 SECURE_PROXY_SSL_HEADER = ("HTTP_X_FORWARDED_PROTO", "https")
 
 
