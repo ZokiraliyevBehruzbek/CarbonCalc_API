@@ -15,10 +15,13 @@ class ActivityCreateSerializer(serializers.ModelSerializer):
         category = validated_data['category']
         value = validated_data.pop('value')
 
-        if category == 'transport':
-            co2_emission = value * 0.21
-        elif category == 'energy':
-            co2_emission = value * 0.5
+        if value > 0:
+            if category == 'transport':
+                co2_emission = value * 0.21
+            elif category == 'energy':
+                co2_emission = value * 0.5
+            else:
+                co2_emission = 0
         else:
             co2_emission = 0
 
